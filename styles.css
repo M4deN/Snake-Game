@@ -8,8 +8,8 @@ body, html {
 
 .game-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 700px;
+    height: 450px;
     border: 2px solid #000000;
 }
 
@@ -27,8 +27,8 @@ body, html {
 }
 .dark-mode .game-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 700px;
+    height: 450px;
     border: 2px solid #f0f0f0;
 }
 
@@ -94,5 +94,17 @@ footer{
     align-items: center;
     text-decoration: none;
   }
+  #startGame {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3%;
+    height: 3%;
+}
+
+#startGame.clicked {
+    display: none;
+}
 
  
