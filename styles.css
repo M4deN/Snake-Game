@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border: 2px solid #000000;
+}
+
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+.dark-mode body, 
+.dark-mode html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.dark-mode .game-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border: 2px solid #f0f0f0;
+}
+
+
+
+.snake, .food {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.snake {
+    background-color: #00f;
+}
+
+.food {
+    background-color: #f00;
+}
+
