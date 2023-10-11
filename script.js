@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameCanvas = document.getElementById('gameCanvas');
     const ctx = gameCanvas.getContext('2d');
+    const gridSize = 25;
+    const numCols = 28; // Calculado com base no tamanho do canvas e do gridSize
+    const numRows = 18; // Calculado com base no tamanho do canvas e do gridSize
+
+    gameCanvas.width = numCols * gridSize;
+    gameCanvas.height = numRows * gridSize;
+
     let snake = [{ x: 10, y: 10 }];
     let food = { x: 15, y: 15 };
     let dx = 1;
@@ -11,28 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawSnake() {
         ctx.fillStyle = '#00f';
         snake.forEach(segment => {
-            ctx.fillRect(segment.x * 20, segment.y * 20, 20, 20);
+            ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
         });
     }
 
     function drawFood() {
         ctx.fillStyle = '#f00';
-        ctx.fillRect(food.x * 20, food.y * 20, 20, 20);
+        ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
     }
 
     function updateSnake(timestamp) {
         const head = { x: snake[0].x + dx, y: snake[0].y + dy };
 
-        if (head.x < 0) head.x = 19;
-        if (head.x >= 20) head.x = 0;
-        if (head.y < 0) head.y = 19;
-        if (head.y >= 20) head.y = 0;
+        if (head.x < 0) head.x = numCols - 1;
+        if (head.x >= numCols) head.x = 0;
+        if (head.y < 0) head.y = numRows - 1;
+        if (head.y >= numRows) head.y = 0;
 
         snake.unshift(head);
 
         if (head.x === food.x && head.y === food.y) {
             score++;
-            food = { x: Math.floor(Math.random() * 20), y: Math.floor(Math.random() * 20) };
+            food = { x: Math.floor(Math.random() * numCols), y: Math.floor(Math.random() * numRows) };
         } else {
             snake.pop();
         }
@@ -50,14 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             dx = 1;
             dy = 0;
             score = 0;
+            document.getElementById('startGame').style.display = 'block';
         }
     }
 
     function checkCollision() {
         const head = snake[0];
-        return (
-            snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
-        );
+        return snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y);
     }
 
     function handleKeydown(event) {
@@ -91,14 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', handleKeydown);
 
-    // Adicione um event listener para o botão iniciar jogo
-    const startButton = document.getElementById('startGame');
-    startButton.addEventListener('click', () => {
-        if (!gameInterval) {
-            gameInterval = setInterval(updateSnake, 200);
-        }
+    document.getElementById('startGame').addEventListener('click', () => {
+        gameInterval = setInterval(updateSnake, 200);
+        document.getElementById('startGame').style.display = 'none';
     });
-    
 });
 
 
