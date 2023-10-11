@@ -35,6 +35,26 @@ body, html {
     border: 2px solid #f0f0f0;
 }
 
+.dark-mode-toggle {
+    position: fixed;
+    top: 45px;
+    right: 0%;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 1000;
+    color: #ffffff;
+}
+
+.fa-sun.dark-mode-toggle {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+
+.fa-moon.dark-mode-toggle {
+    font-size: 25px;
+    color: #ffffff;
+}
 
 
 .snake, .food {
@@ -51,3 +71,30 @@ body, html {
     background-color: #f00;
 }
 
+footer{
+    clear: both;
+    border-top: 1px solid #c7c6c6; 
+    position: fixed;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  footer p, a{
+    margin-top: auto;
+    margin-left: 0.2em;
+    color: var(--white);
+    align-items: center;
+    text-decoration: none;
+  }
+
+  body.dark-mode footer {
+    color: #000000;
+    border-top-color: #000000; 
+  }
+  
+  body.dark-mode footer p, body.dark-mode .footer a {
+    color: #000000; 
+  }
