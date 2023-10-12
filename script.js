@@ -2,8 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameCanvas = document.getElementById('gameCanvas');
     const ctx = gameCanvas.getContext('2d');
     const gridSize = 25;
-    const numCols = 28; // Calculado com base no tamanho do canvas e do gridSize
-    const numRows = 18; // Calculado com base no tamanho do canvas e do gridSize
+    const numCols = 32;
+    const numRows = 19.2; 
+    const snakeColors = ['#00f', '#0f0', '#ff0', '#f0f', '#0ff', '#f80', '#08f', '#f08', '#80f', '#8f0'];
+
 
     gameCanvas.width = numCols * gridSize;
     gameCanvas.height = numRows * gridSize;
@@ -14,9 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let dy = 0;
     let score = 0;
     let gameInterval;
+    let scoreElement = document.getElementById('score');
 
     function drawSnake() {
-        ctx.fillStyle = '#00f';
+        const snakeColor = snakeColors[score % snakeColors.length];
+        ctx.fillStyle = snakeColor;
+    
         snake.forEach(segment => {
             ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
         });
@@ -29,26 +34,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateSnake(timestamp) {
         const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-
+    
         if (head.x < 0) head.x = numCols - 1;
         if (head.x >= numCols) head.x = 0;
         if (head.y < 0) head.y = numRows - 1;
         if (head.y >= numRows) head.y = 0;
-
+    
         snake.unshift(head);
-
-        if (head.x === food.x && head.y === food.y) {
+    
+    
+        const foodGridX = food.x * gridSize;
+        const foodGridY = food.y * gridSize;
+    
+        if (
+            head.x * gridSize >= foodGridX - 5 &&
+            head.x * gridSize <= foodGridX + 5 &&
+            head.y * gridSize >= foodGridY - 5 &&
+            head.y * gridSize <= foodGridY + 5
+        ) {
             score++;
             food = { x: Math.floor(Math.random() * numCols), y: Math.floor(Math.random() * numRows) };
+            document.getElementById('scoreValue').textContent = score; 
         } else {
             snake.pop();
         }
-
+    
         ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-
+    
         drawSnake();
         drawFood();
-
+    
         if (checkCollision()) {
             alert(`Game Over! Pontuação: ${score}`);
             clearInterval(gameInterval);
@@ -60,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('startGame').style.display = 'block';
         }
     }
+    
+    
 
     function checkCollision() {
         const head = snake[0];
@@ -107,13 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function enableDarkMode() {
     document.body.classList.add('dark-mode');
-    localStorage.setItem('darkMode', 'enabled'); // Corrigido para 'enabled'
+    localStorage.setItem('darkMode', 'enabled'); 
   }
   
   // Função para desativar o modo escuro
   function disableDarkMode() {
     document.body.classList.remove('dark-mode');
-    localStorage.setItem('darkMode', 'disabled'); // Corrigido para 'disabled'
+    localStorage.setItem('darkMode', 'disabled'); 
   }
   
   // Verificar o estado atual do modo escuro no carregamento da página
