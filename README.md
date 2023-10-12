@@ -1,4 +1,4 @@
-# Jogo da Cobrinha
+# Snake Game
 
 Um simples jogo da cobrinha construído em HTML, CSS e JavaScript.
 
@@ -21,6 +21,10 @@ Um simples jogo da cobrinha construído em HTML, CSS e JavaScript.
 - Para ajustar o tamanho do campo de jogo, modifique as propriedades `width` e `height` no arquivo `style.css`.
 - Para alterar as cores ou adicionar novos estilos, edite o arquivo `style.css`.
 - Para adicionar ícones ou fazer outras modificações no layout, consulte o arquivo `index.html`.
+
+## Demonstração
+
+https://github.com/M4deN/Snake-Game/assets/43422425/3a7795b7-c38f-42d9-a2ef-ff7a0d16e5ac
 
 ## Créditos
 
