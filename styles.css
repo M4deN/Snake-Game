@@ -8,9 +8,10 @@ body, html {
 
 .game-container {
     position: relative;
-    width: 700px;
-    height: 450px;
+    width: 800px;
+    height: 480px;
     border: 2px solid #000000;
+    box-shadow: 15px 15px 15px rgba(85, 83, 83, 0.3);
 }
 
 .dark-mode body, 
@@ -27,9 +28,10 @@ body, html {
 }
 .dark-mode .game-container {
     position: relative;
-    width: 700px;
-    height: 450px;
+    width: 800px;
+    height: 480px;
     border: 2px solid #f0f0f0;
+    box-shadow: 15px 15px 15px rgba(230, 219, 219, 0.3);
 }
 
 .dark-mode-toggle {
@@ -68,33 +70,45 @@ body, html {
     background-color: #f00;
 }
 
-footer{
+  footer{
     clear: both;
-    border-top: 1px solid #c7c6c6; 
+    border-top: 1px solid #000000; 
     position: fixed;
-    color: white;
     bottom: 0;
     width: 100%;
     padding: 5px;
     text-align: center;
-  }
-  
-  .dark-mode .footer {
-    background-color: #000000;
-    color: rgb(0, 0, 0);
-    border-top-color: #000000;
 }
 
+.dark-mode .footer{
+    clear: both;
+    border-top: 1px solid #d11717; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
 
+.light-mode footer {
+    color: #000;
+    border-top-color: #000;
+}
 
-  footer p, a{
+.dark-mode footer {
+    color: #ffffff;
+    border-top-color: #fff;
+}
+
+footer p, a{
     margin-top: auto;
     margin-left: 0.2em;
     color: var(--white);
     align-items: center;
     text-decoration: none;
   }
-  #startGame {
+
+#startGame {
     position: absolute;
     top: 85%;
     left: 50%;
@@ -107,4 +121,10 @@ footer{
     display: none;
 }
 
- 
+#score {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
