@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const numCols = 32;
     const numRows = 19.2; 
     const snakeColors = ['#00f', '#0f0', '#ff0', '#f0f', '#0ff', '#f80', '#08f', '#f08', '#80f', '#8f0'];
+  
 
 
     gameCanvas.width = numCols * gridSize;
@@ -55,10 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
             score++;
             food = { x: Math.floor(Math.random() * numCols), y: Math.floor(Math.random() * numRows) };
             document.getElementById('scoreValue').textContent = score; 
+            changeSnakeColor(); 
         } else {
             snake.pop();
         }
-    
         ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
     
         drawSnake();
@@ -75,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('startGame').style.display = 'block';
         }
     }
-    
-    
 
     function checkCollision() {
         const head = snake[0];
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     }
-
+    
     document.addEventListener('keydown', handleKeydown);
 
     document.getElementById('startGame').addEventListener('click', () => {
