@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Cobrinha</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">     
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">   
+    <link rel="icon" href="icon.png">  
 </head>
 <body class="dark-mode">
+    <div id="score"><span><i class="fas fa-star"></i></span> Pontuação: <span id="scoreValue">0</span></div>    
     <i id="dark-mode-toggle" class="fas fa-sun dark-mode-toggle" ></i>
     <button id="startGame"><i class="fas fa-play"></i></button>
-
     <div class="game-container">
-        <canvas id="gameCanvas" width="700" height="450"></canvas>
+        <canvas id="gameCanvas" width="800" height="480"></canvas>
     </div>
     <script src="script.js"></script>
     <footer>
-        Copyright &copy; 2020 Desenvolvido por
+        Copyright &copy; 2022 Desenvolvido por
         <a href="https://www.facebook.com/Madenxx/" target="_blank">Alécio L. Medeiros</a>.        
         <a href="https://www.linkedin.com/in/madenx" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/M4deN" target="_blank"><i class="fab fa-github"></i></a>
