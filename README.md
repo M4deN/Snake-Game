@@ -1,4 +1,4 @@
-# Snake Game
+# Snake Game 🐍
 
 Um simples jogo da cobrinha construído em HTML, CSS e JavaScript.
 
@@ -33,10 +33,6 @@ https://github.com/M4deN/Snake-Game/assets/43422425/3a7795b7-c38f-42d9-a2ef-ff7a
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE).
+Este projeto está licenciado sob a Licença MIT [LICENSE](LICENSE).
 
 ---
-
-Divirta-se jogando! 🐍
-
- 
