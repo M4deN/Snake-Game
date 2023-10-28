@@ -24,7 +24,7 @@ Um simples jogo da cobrinha construído em HTML, CSS e JavaScript.
 
 ## Demonstração
 
-https://github.com/M4deN/Snake-Game/assets/43422425/3a7795b7-c38f-42d9-a2ef-ff7a0d16e5ac
+https://github.com/M4deN/Snake-Game/assets/43422425/ef7e6057-28b1-471c-adfd-b216f7acc37d
 
 ## Créditos
 
